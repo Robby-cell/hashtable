@@ -1,12 +1,12 @@
 
 
-CC 					= 	gcc
-BIN_DIR 		= 	bin
-CFLAGS 			=
-BIN 			  = 	${BIN_DIR}/main
-SRCS 				= 	$(wildcard src/*.c)
-BINS 				= 	$(SRCS:src/%.c=bin/%)
-OBJS 				= 	$(wildcard obj/*.o)
+CC          = 	gcc
+BIN_DIR     = 	bin
+CFLAGS      =
+BIN         = 	${BIN_DIR}/main
+SRCS        = 	$(wildcard src/*.c)
+BINS        = 	$(SRCS:src/%.c=bin/%)
+OBJS        = 	$(wildcard obj/*.o)
 
 all: ${BIN}
 
