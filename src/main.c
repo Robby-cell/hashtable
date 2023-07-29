@@ -130,6 +130,13 @@ struct HashMap *new_map(u64 capacity) {
   return map;
 }
 
+void destroy_map(struct HashMap *map) {
+  if (map->items != NULL)
+    free(map->items);
+  if (map != NULL)
+    free(map);
+}
+
 int main(int argc, char **argv) {
   struct HashMap *map = NULL;
   map = new_map(3);
@@ -171,10 +178,7 @@ int main(int argc, char **argv) {
     printf("key: %s\nvalue: %d\n", with_get->key, with_get->value);
   }
 
-  if (map->items != NULL)
-    free(map->items);
-  if (map != NULL)
-    free(map);
+  destroy_map(map);
 
   return 0;
 }
