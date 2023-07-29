@@ -153,6 +153,8 @@ int main(int argc, char **argv) {
 
   key = "robert";
   entry(map, key, 89);
+  key = "robert";
+  entry(map, key, 89);
 
   // struct item *retd = linear_search(map, "john");
   // if (retd->key != NULL) {
