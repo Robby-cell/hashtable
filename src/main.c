@@ -20,13 +20,12 @@ struct HashMap {
 };
 
 u64 hash(char *key, u64 capacity) {
-  int hash_total = 0;
+  u64 hash_total = 0;
   const u64 len = strlen(key);
   for (u64 i = 0; i < len; ++i) {
-    hash_total += (int)key[i];
+    hash_total += (key[i] * (i + 1));
   }
-  // u64 out = (u64)1;
-  int out = (int)hash_total % (int)(2 * capacity);
+  u64 out = hash_total % (2 * capacity);
   return (u64)out;
 }
 
