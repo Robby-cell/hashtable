@@ -121,13 +121,6 @@ struct HashMap *new_map(u64 capacity) {
   *map = (struct HashMap){.capacity = capacity, .entries = 0};
   map->items = (struct item *)malloc(2 * capacity * sizeof(struct item));
 
-  for (u64 i = 0; i < capacity; ++i) {
-    struct item assign = {
-        .key = NULL,
-        .value = 0,
-    };
-    map->items[i] = assign;
-  }
   return map;
 }
 
