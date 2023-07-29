@@ -52,6 +52,7 @@ struct item *get(struct HashMap *map, char *key) {
 
   struct item *guess = &map->items[index];
   if (guess->key != NULL && strcmp(guess->key, key) == 0) {
+    // best case, we get it first try
     return guess;
   }
 
@@ -63,6 +64,7 @@ struct item *get(struct HashMap *map, char *key) {
     if (guess->key == NULL)
       continue;
     if (strcmp(guess->key, key) == 0) {
+      // we check up to the end of the map
       return guess;
     }
   }
@@ -73,6 +75,9 @@ struct item *get(struct HashMap *map, char *key) {
     if (guess->key == NULL)
       continue;
     if (strcmp(guess->key, key) == 0) {
+      // then we check the other bit, because
+      // we add the entry after if it cant be added
+      // where we want to add it
       return guess;
     }
   }
