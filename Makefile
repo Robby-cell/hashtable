@@ -5,7 +5,6 @@ BIN_DIR     = 	bin
 CFLAGS      =
 BIN         = 	${BIN_DIR}/main
 SRCS        = 	$(wildcard src/*.c)
-BINS        = 	$(SRCS:src/%.c=bin/%)
 OBJS        = 	$(wildcard obj/*.o)
 
 all: ${BIN}
@@ -25,7 +24,7 @@ obj/%.o: src/%.c
 .SILENT: all
 
 clean:
-	rm -f ${BINS} ${OBJS}
+	rm -f ${BIN} ${OBJS}
 
 
 
