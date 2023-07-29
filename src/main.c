@@ -108,11 +108,20 @@ void entry(struct HashMap *map, char *key, int value) {
     return;
   } else {
     for (u64 i = insert_index; i < map->capacity; ++i) {
-      if (&map->items[i] == NULL) {
+      if (map->items[i].key == NULL) {
         // problem
         map->items[i] = (struct item){.key = key, .value = value};
         map->entries += 1;
-        break;
+        return;
+      }
+    }
+
+    for (u64 i = 0; i < insert_index; ++i) {
+      if (map->items[i].key == NULL) {
+        // problem
+        map->items[i] = (struct item){.key = key, .value = value};
+        map->entries += 1;
+        return;
       }
     }
   }
