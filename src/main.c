@@ -131,10 +131,11 @@ struct HashMap *new_map(u64 capacity) {
 }
 
 void destroy_map(struct HashMap *map) {
-  if (map->items != NULL)
-    free(map->items);
-  if (map != NULL)
+  if (map != NULL) {
+    if (map->items != NULL)
+      free(map->items);
     free(map);
+  }
 }
 
 int main(int argc, char **argv) {
