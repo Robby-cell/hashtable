@@ -87,7 +87,7 @@ void entry(struct HashMap *map, char *key, int value) {
     new_items = realloc((void *)map->items,
                         2 * (map->capacity + 1) * sizeof(struct item));
     if (new_items == NULL) {
-      puts("Could not reallocate.");
+      fputs("Could not reallocate.", stderr);
       return;
     }
     map->capacity += 1;
