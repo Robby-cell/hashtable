@@ -81,6 +81,8 @@ struct item *get(struct HashMap *map, char *key) {
 }
 
 void entry(struct HashMap *map, char *key, int value) {
+  if (get(map, key) != NULL)
+    return;
   if (map->capacity <= map->entries) {
     void *new_items;
     new_items = realloc((void *)map->items,
