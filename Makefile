@@ -14,7 +14,7 @@ ${BIN_DIR}/%: obj/%.o
 	${CC} ${CFLAGS} -o $@ $^
 
 
-.SECONDARY: ${OBJS}
+.SECONDARY: obj/main.o
 
 
 obj/%.o: src/%.c
