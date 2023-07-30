@@ -5,11 +5,11 @@ BIN_DIR     = 	bin
 CFLAGS      =
 BIN         = 	${BIN_DIR}/main
 SRCS        = 	$(wildcard src/*.c)
-OBJS        = 	$(wildcard obj/*.o)
+OBJS        = 	$(SRCS:src/%.c=obj/%.o)
 
 all: ${BIN}
 
-${BIN_DIR}/%: obj/%.o
+${BIN}: ${OBJS}
 	${CC} ${CFLAGS} -o $@ $^
 
 
