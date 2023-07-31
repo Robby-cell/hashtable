@@ -117,7 +117,9 @@ void entry(struct HashMap *map, char *key, int value) {
 
 struct HashMap *new_map(u64 capacity) {
   struct HashMap *map =
-      (struct HashMap *)malloc(capacity * sizeof(struct HashMap));
+      (struct HashMap *)malloc(sizeof(struct HashMap));
+  if (map == NULL) return NULL;
+  
   *map = (struct HashMap){.capacity = capacity, .entries = 0};
   map->items = (struct item *)malloc(2 * capacity * sizeof(struct item));
 
