@@ -41,7 +41,6 @@ struct item *get(struct HashMap *map, char *key) {
     return guess;
   }
 
-  if (index >= map->capacity * 2)
     return NULL;
   for (u64 i = index + 1; i < map->capacity * 2; ++i) {
     guess = &map->items[i];
