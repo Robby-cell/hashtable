@@ -52,4 +52,10 @@ struct HashMap *new_map(u64 capacity);
 ///
 void destroy_map(struct HashMap *map);
 
+
+void get_or_put(struct HashMap*, char*, int);
+
+void insert(struct HashMap*, char*, int);
+
+
 #endif // _MAP_H_
