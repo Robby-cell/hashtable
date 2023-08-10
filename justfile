@@ -2,11 +2,10 @@
 CC := "gcc"
 DEFAULT := "bin/map"
 
-build: (compile) (link DEFAULT) 
-
 SRCS := replace(`ls src`, "\n", " ")
 
-[unix]
+build: (compile) (link DEFAULT) 
+
 compile:
     @for file in {{ SRCS }}; do \
         echo "COMPILING src/$file" ; \
@@ -20,6 +19,8 @@ compile:
     {{ CC }} -o {{ target }} obj/*.c.o
     echo "DONE"
 
-#[windows]
-default:
-    @echo "Why are you on windows"
+[windows]
+@link target:
+    echo "LINKING..."
+    {{ CC }} -o {{ target }}.exe obj/*.c.o
+    echo "DONE"
