@@ -2,7 +2,7 @@
 
 CC          = 	gcc
 BIN_DIR     = 	bin
-CFLAGS      =
+CFLAGS      =   -Wall
 BIN         = 	${BIN_DIR}/main
 SRCS        = 	$(wildcard src/*.c)
 OBJS        = 	$(SRCS:src/%.c=obj/%.o)
